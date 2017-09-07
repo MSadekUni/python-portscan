@@ -12,7 +12,7 @@ __all__ = [
 ]
 
 def UploadToDropbox(files, folder_dest):
-  # Timestamp init
+  """ Uploads each file denoted in 'files' to the DropBox folder denoted by folder_dest """
 
 
 
@@ -82,7 +82,8 @@ def UploadToDropbox(files, folder_dest):
   return returnLinks 
 
 
-def GetShareableLink(path,):
+def GetShareableLink(path):
+    """ Privated Helper Function that returns a shareable link to the file denoted by 'path'"""
     isinstance(path, str)
     auth ='Bearer ' + DROP_BOX_API
     headers = {

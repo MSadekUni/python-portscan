@@ -13,7 +13,7 @@ __all__ = [
 
 
 def SendMail(BU, server="localhost"):
-    """Send formatted email using information from a BuisnessUnit Object"""
+    """Send formatted email using information from a BuisnessUnit Object."""
 
     # Timestamp init
     utc = arrow.utcnow()

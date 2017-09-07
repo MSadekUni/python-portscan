@@ -12,6 +12,7 @@ __all__ = [
 
 
 def GenerateHTML(BU):
+  """ Programmatically Generates HTML using data served from a BusinessUnit object. """
   utc = arrow.utcnow()
   local = utc.to('US/Pacific')
 

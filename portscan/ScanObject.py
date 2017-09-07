@@ -5,13 +5,13 @@ __all__ = [
 
 class ScanObject:
   def __init__(self):
-    """Contructor of object containing a single nmap scan entity"""
+    """Contructor of object containing a single nmap scan entity."""
     self.start_ip = self.subnet = self.range = self.ports = ""
     self.command = ""
     self.outfile = ""
 
   def GetMachineCount(self):
-    """Determines the number of IP's that will be scanned with this object instance"""
+    """Determines the number of IP's that will be scanned with this object's instance."""
     if self.subnet is None and self.range is None:
       return 1
     elif self.range is None:
@@ -19,14 +19,10 @@ class ScanObject:
     else:
       end = self.start_ip.split('.')[3]
       return int(self.range) - int(end) + 1
-
-  # def Populate(self, line):
-  #   """From a given legal line of input, determine type of input for nmap"""
-    
     
 
   def CreateCommand(self, line, exclusion_string, global_ports, out_dir):
-    """Takes input from the BusinessUnit object that owns this ScanObject and creates the command for the system to execute"""
+    """Takes input from the BusinessUnit object that owns this ScanObject and creates the command for the system to execute."""
     
     isinstance(exclusion_string, str)
     isinstance(global_ports, str)
