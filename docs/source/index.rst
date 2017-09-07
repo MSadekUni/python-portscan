@@ -14,7 +14,7 @@ Current modules
 - Emailing: Configures push notifications via emails.
 - HTMLGenerator: Programatically generates HTML output.
 - Log: Allows logging of key features.
-- Upload: Allows uploading of reports to DropBox
+- Upload: Allows uploading of reports to DropBox.
 
 
 Kali_Port_Scanning's modules
