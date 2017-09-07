@@ -20,5 +20,5 @@ Using Emailing
 Emailing methods
 ----------------
 
-.. automodule:: KPS.Emailing
+.. automodule:: portscan.Emailing
 .. autofunction:: SendMail

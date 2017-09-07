@@ -20,7 +20,7 @@ Using ScanObject
 ScanObject methods
 ------------------
 
-.. automodule:: KPS.ScanObject
+.. automodule:: portscan.ScanObject
 .. autoclass:: ScanObject
     :members:
 

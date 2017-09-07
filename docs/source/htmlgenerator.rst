@@ -20,5 +20,5 @@ Using HTMLGenerator
 HTMLGenerator methods
 ---------------------
 
-.. automodule:: KPS.HTMLGenerator
+.. automodule:: portscan.HTMLGenerator
 .. autofunction:: GenerateHTML

@@ -19,6 +19,6 @@ Using Upload
 Upload methods
 --------------
 
-.. automodule:: KPS.Upload
+.. automodule:: portscan.Upload
 .. autofunction:: UploadToDropbox
 .. autofunction:: GetShareableLink

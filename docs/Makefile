@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python3 -msphinx
-SPHINXPROJ    = KPS
+SPHINXPROJ    = python-portscan
 SOURCEDIR     = source
 BUILDDIR      = build
 

@@ -20,5 +20,5 @@ Using Log
 Log methods
 -----------
 
-.. automodule:: KPS.Log
+.. automodule:: portscan.Log
 .. autofunction:: send_log

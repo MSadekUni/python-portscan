@@ -22,7 +22,7 @@ Using BusinesUnit
 BusinessUnit methods
 --------------------
 
-.. automodule:: KPS.BusinessUnit
+.. automodule:: portscan.BusinessUnit
 .. autoclass:: BusinessUnit
     :members:
 
