@@ -11,10 +11,20 @@ The Eamiling module send push notifications to white listed email handles specif
 Using Emailing
 --------------
 
+Emailing is a module specifically called by the user. No other module explicitly or implicitly imports this set of functions, but does need a BusinessUnit Object to format and send emails.
+
+
 ::
-    
-    Hello World
-    This is some example code
+
+    from portscan import Eamiling
+
+    ...
+
+    # After running a BusinessUnit Scan
+    BU.Collect()
+
+    if BU.emails > 0:
+      Emailing.SendMail(BU)
 
 
 Emailing methods

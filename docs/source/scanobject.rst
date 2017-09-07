@@ -13,8 +13,12 @@ Using ScanObject
 
 ::
     
-    Hello World
-    This is some example code
+    BU_SO = ScanObject.ScanObject()
+    
+    # populate fields based on line input
+    if(BU_SO.Populate(line.strip(' \t\n\r'))):
+        # from populated fields, create the command using this data
+        BU_SO.CreateCommand(self.exclude_string, self.ports, self.nmap_dir)
 
 
 ScanObject methods

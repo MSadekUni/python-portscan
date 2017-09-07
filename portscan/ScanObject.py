@@ -20,9 +20,18 @@ class ScanObject:
       end = self.start_ip.split('.')[3]
       return int(self.range) - int(end) + 1
 
-  def Populate(self, line):
-    """From a given legal line of input, determine type of input for nmap"""
+  # def Populate(self, line):
+  #   """From a given legal line of input, determine type of input for nmap"""
     
+    
+
+  def CreateCommand(self, line, exclusion_string, global_ports, out_dir):
+    """Takes input from the BusinessUnit object that owns this ScanObject and creates the command for the system to execute"""
+    
+    isinstance(exclusion_string, str)
+    isinstance(global_ports, str)
+    isinstance(out_dir, str)
+
     isinstance(line, str)
 
     # Parse any individual ports
@@ -53,16 +62,7 @@ class ScanObject:
       self.start_ip = line
       self.range = None
       self.subnet = None
-    return True
-
-  def CreateCommand(self, exclusion_string, global_ports, out_dir):
-    """Takes input from the BusinessUnit object that owns this ScanObject and creates the command for the system to execute"""
     
-    isinstance(exclusion_string, str)
-    isinstance(global_ports, str)
-    isinstance(out_dir, str)
-
-
 
     # THIS IS ALLOWED. CHECKS HAVE BEEN MADE, bad_ports 
     # will always have a single comma after. self.ports 

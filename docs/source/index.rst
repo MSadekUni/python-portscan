@@ -33,6 +33,7 @@ The differen modules are documented below:
    htmlgenerator
    log
    upload
+   server
 
 
 Indices and tables

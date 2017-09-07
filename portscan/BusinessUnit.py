@@ -7,18 +7,15 @@ from . import ScanObject
 
 from . import Upload
 
-
+# Standard Library Modules
+# from libnmap.parser import NmapParser
+import libnmap.parser
+import os
 
 
 __all__ = [
     'BusinessUnit'
 ]
-
-
-# Standard Library Modules
-# from libnmap.parser import NmapParser
-import libnmap.parser
-import os
 
 # Business Uni 
 class BusinessUnit:
@@ -137,12 +134,9 @@ class BusinessUnit:
             # create scan object
             BU_SO = ScanObject.ScanObject()
             # populate fields based on line input
-            if(BU_SO.Populate(line.strip(' \t\n\r'))):
-              # from populated fields, create the command using this data
-              BU_SO.CreateCommand(self.exclude_string, self.ports, self.nmap_dir)
-              # if not fails. Append to the scan_obj list
-              self.scan_objs.append(BU_SO)
-              self.machine_count = self.machine_count + BU_SO.GetMachineCount()
+            BU_SO.CreateCommand(line.strip(' \t\n\r'), self.exclude_string, self.ports, self.nmap_dir)
+            self.scan_objs.append(BU_SO)
+            self.machine_count = self.machine_count + BU_SO.GetMachineCount()
     except IOError:
       Log.send_log("Unable to open " + self.ip_file)
       exit(1)
