@@ -63,14 +63,9 @@ setup(
 
   install_requires = [
     'arrow',
-    'smtplib',
-    'os',
     'yattag',
-    'fileinput',
-    'logging',
-    'datetime',
-    'time',
     'dropbox',
+    'python-libnmap',
   ],
 
   python_requires = '>=3',
