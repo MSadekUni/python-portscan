@@ -61,6 +61,18 @@ setup(
 
   packages = ['portscan'],
 
+  install_requires = [
+    'arrow',
+    'smtplib',
+    'os',
+    'yattag',
+    'fileinput',
+    'logging',
+    'datetime',
+    'time',
+    'dropbox',
+  ],
+
   python_requires = '>=3',
 
 
