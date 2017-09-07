@@ -1,0 +1,172 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BusinessUnit Module &#8212; KPS 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Emailing Module" href="scanobject.html" />
+    <link rel="prev" title="Welcome to Kali_Port_Scanning developer documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="businessunit-module">
+<h1>BusinessUnit Module<a class="headerlink" href="#businessunit-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose-of-businessunit">
+<h2>Purpose of BusinessUnit<a class="headerlink" href="#purpose-of-businessunit" title="Permalink to this headline">¶</a></h2>
+<p>The BusinessUnit object is the backbone of KPS, it structures the data needed for a business unit to exist,
+handles reading of input, creates ScanObjects, handles concurrency of scans, and parses output.</p>
+</div>
+<div class="section" id="using-businesunit">
+<h2>Using BusinesUnit<a class="headerlink" href="#using-businesunit" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Hello</span> <span class="n">World</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">some</span> <span class="n">example</span> <span class="n">code</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-KPS.BusinessUnit">
+<span id="businessunit-methods"></span><h2>BusinessUnit methods<a class="headerlink" href="#module-KPS.BusinessUnit" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="KPS.BusinessUnit.BusinessUnit">
+<em class="property">class </em><code class="descclassname">KPS.BusinessUnit.</code><code class="descname">BusinessUnit</code><span class="sig-paren">(</span><em>p_name</em>, <em>p_path</em>, <em>p_verbose=''</em>, <em>p_org=''</em><span class="sig-paren">)</span><a class="headerlink" href="#KPS.BusinessUnit.BusinessUnit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="KPS.BusinessUnit.BusinessUnit.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>p_name</em>, <em>p_path</em>, <em>p_verbose=''</em>, <em>p_org=''</em><span class="sig-paren">)</span><a class="headerlink" href="#KPS.BusinessUnit.BusinessUnit.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>BusinessUnit Class Constructor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="KPS.BusinessUnit.BusinessUnit.CheckDeps">
+<code class="descname">CheckDeps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#KPS.BusinessUnit.BusinessUnit.CheckDeps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Private Method that depends on self.path existing in the object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="KPS.BusinessUnit.BusinessUnit.ParseOutput">
+<code class="descname">ParseOutput</code><span class="sig-paren">(</span><em>buisness_path=''</em><span class="sig-paren">)</span><a class="headerlink" href="#KPS.BusinessUnit.BusinessUnit.ParseOutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse and assemble human readable csv report of all nmap results</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="KPS.BusinessUnit.BusinessUnit.ReadBase">
+<code class="descname">ReadBase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#KPS.BusinessUnit.BusinessUnit.ReadBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse and store networks, subnets, ranges, and individual IP’s for scanning from ports_baseline_{business_unit}.conf</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="KPS.BusinessUnit.BusinessUnit.ReadPorts">
+<code class="descname">ReadPorts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#KPS.BusinessUnit.BusinessUnit.ReadPorts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse and store ports to be general ports in ports_bad_{business_unit}</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="KPS.BusinessUnit.BusinessUnit.Scan">
+<code class="descname">Scan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#KPS.BusinessUnit.BusinessUnit.Scan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute scanning commands</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">KPS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BusinessUnit Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#purpose-of-businessunit">Purpose of BusinessUnit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-businesunit">Using BusinesUnit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-KPS.BusinessUnit">BusinessUnit methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scanobject.html">Emailing Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emailing.html">Emailing Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htmlgenerator.html">HTMLGenerator Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Log Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upload.html">Upload Docs</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Kali_Port_Scanning developer documentation!</a></li>
+      <li>Next: <a href="scanobject.html" title="next chapter">Emailing Module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Daniel Thurau.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/businessunit.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
