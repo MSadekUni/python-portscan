@@ -3,6 +3,7 @@ from . import Log
 import os
 import arrow
 import dropbox
+import requests
 
 
 __all__ = [
@@ -12,19 +13,7 @@ __all__ = [
 
 def UploadToDropbox(files, folder_dest):
   # Timestamp init
-  utc = arrow.utcnow()
-  local = utc.to('US/Pacific')
-  try: 
-    DROP_BOX_API = os.environ['dropbox_key']
-  except:
-    Log.send_log("ENV Var dropbox_key DNE")
-    exit(1)
 
-  try:
-    GOOGLE_API = os.environ['google_key']
-  except:
-    Log.send_log("ENV Var google_key DNE")
-    exit(1)
 
 
   # Dropbox module init
@@ -93,9 +82,9 @@ def UploadToDropbox(files, folder_dest):
   return returnLinks 
 
 
-def GetShareableLink(path, DB_API):
+def GetShareableLink(path,):
     isinstance(path, str)
-    auth ='Bearer ' + DB_API
+    auth ='Bearer ' + DROP_BOX_API
     headers = {
         'Authorization': auth, 
         'Content-Type': 'application/json',
@@ -106,3 +95,18 @@ def GetShareableLink(path, DB_API):
     return result
 
 
+if __name__ == "__main__":
+  utc = arrow.utcnow()
+  local = utc.to('US/Pacific')
+  try: 
+    DROP_BOX_API = os.environ['dropbox_key']
+  except:
+    Log.send_log("ENV Var dropbox_key DNE")
+    raise EnvironmentError
+
+  try:
+    GOOGLE_API = os.environ['google_key']
+  except:
+    Log.send_log("ENV Var google_key DNE")
+    raise EnvironmentError
+  # stuff only to run when not called via 'import' here

@@ -11,14 +11,22 @@ The ScanObject module is an object that is owned BusinessUnit. This recieves dat
 Using ScanObject
 ----------------
 
+ScanObject is implicitly called, but the user still has access to it. The BusinessUnit keeps a list of these objects under BusinessUnit.scan_objs. An basic example of how a ScanObject operates and serves its data is given below.
+
+
 ::
-    
+
+    from portscan import ScanObject
+
+    ...
+
     BU_SO = ScanObject.ScanObject()
     
-    # populate fields based on line input
-    if(BU_SO.Populate(line.strip(' \t\n\r'))):
-        # from populated fields, create the command using this data
-        BU_SO.CreateCommand(self.exclude_string, self.ports, self.nmap_dir)
+    BU_SO.CreateCommand("127.0.0.1:22", "-127.0.0.2", "23", "nmap-test")
+
+    print(BU_SO.command)
+
+    $ open {nmap-dir}/out.html
 
 
 ScanObject methods

@@ -5,7 +5,11 @@ from . import Log
 
 from . import ScanObject
 
-from . import Upload
+try:
+  from . import Upload
+except EnvironmentError:
+  upload_bool = False
+  
 
 # Standard Library Modules
 # from libnmap.parser import NmapParser
@@ -243,5 +247,5 @@ class BusinessUnit:
 
     
 
-
-
+if __name__ == "__main__":
+  upload_bool = True

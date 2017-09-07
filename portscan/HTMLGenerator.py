@@ -11,7 +11,7 @@ __all__ = [
 ]
 
 
-def GenerateHTML(BU, links = []):
+def GenerateHTML(BU):
   utc = arrow.utcnow()
   local = utc.to('US/Pacific')
 
