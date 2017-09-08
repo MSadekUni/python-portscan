@@ -21,6 +21,7 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
+
 gh-pages:
 	git checkout gh-pages
 	rm -rf build sources 

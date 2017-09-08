@@ -31,8 +31,10 @@ Most modules while callable by the user are integrated into BusinessUnit. An exa
     # Collect all nmap data and write to file
     BU.Collect()
 
+
 BusinessUnit methods
 --------------------
+
 
 .. automodule:: portscan.BusinessUnit
 .. autoclass:: BusinessUnit
