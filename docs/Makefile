@@ -23,4 +23,4 @@ help:
 
 
 gh-pages:
-	cd ..;git checkout gh-pages;cd docs/;rm -rf build source;git checkout master $(GH_PAGES_SOURCES);git reset HEAD;make html;mv -fv build/html/* ../;touch ../.nojekyll;rm -rf $(GH_PAGES_SOURCES) build;git add -A;git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages;cd ..;git checkout master
+	cd ..;git checkout gh-pages;cd docs/;rm -rf build source;git checkout master $(GH_PAGES_SOURCES);mkdir source/_static; git reset HEAD;make html;mv -fv build/html/* ../;touch ../.nojekyll;rm -rf $(GH_PAGES_SOURCES) build;git add -A;git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages;cd ..;git checkout master
