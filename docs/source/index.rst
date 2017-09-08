@@ -22,7 +22,7 @@ Kali_Port_Scanning's modules
 
 The full `source code <http://www.python.org/>`_ is availible on GitHub.
 
-The differen modules are documented below:
+The different modules are documented below:
 
 .. toctree::
    :maxdepth: 2
