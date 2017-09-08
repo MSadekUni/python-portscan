@@ -239,7 +239,10 @@ class BusinessUnit:
 
     Log.send_log("Generated CSV report.")
     # upload Report to DropBox
-    self.links = Upload.UploadToDropbox([self.outfile], '/' + os.path.basename(os.path.normpath(self.nmap_dir)) + '/')
+    try:
+      self.links = Upload.UploadToDropbox([self.outfile], '/' + os.path.basename(os.path.normpath(self.nmap_dir)) + '/')
+    except EnvironmentError:
+        self.links = []
     # Generate HMTL
     HTMLGenerator.GenerateHTML(self)
 
