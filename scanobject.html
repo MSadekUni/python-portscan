@@ -1,0 +1,141 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ScanObject Module &#8212; python-portscan 3.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Emailing Module" href="emailing.html" />
+    <link rel="prev" title="BusinessUnit Module" href="businessunit.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="scanobject-module">
+<h1>ScanObject Module<a class="headerlink" href="#scanobject-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose-of-scanobject">
+<h2>Purpose of ScanObject<a class="headerlink" href="#purpose-of-scanobject" title="Permalink to this headline">¶</a></h2>
+<p>The ScanObject module is an object that is owned BusinessUnit. This recieves data from the BusinessUnit reading the config files, and configures the nmap scan to be run. It holds data such as: flags, IP set, ports, and output file. It will configure the final command and serve it to the BusinessUnit object when the BusinessUnit.scan() method is called.</p>
+</div>
+<div class="section" id="using-scanobject">
+<h2>Using ScanObject<a class="headerlink" href="#using-scanobject" title="Permalink to this headline">¶</a></h2>
+<p>ScanObject is implicitly called, but the user still has access to it. The BusinessUnit keeps a list of these objects under BusinessUnit.scan_objs. An basic example of how a ScanObject operates and serves its data is given below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>from portscan import ScanObject
+
+...
+
+BU_SO = ScanObject.ScanObject()
+
+BU_SO.CreateCommand(&quot;127.0.0.1:22&quot;, &quot;-127.0.0.2&quot;, &quot;23&quot;, &quot;nmap-test&quot;)
+
+print(BU_SO.command)
+
+$ open {nmap-dir}/out.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="scanobject-methods">
+<h2>ScanObject methods<a class="headerlink" href="#scanobject-methods" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">python-portscan</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="businessunit.html">BusinessUnit Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ScanObject Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#purpose-of-scanobject">Purpose of ScanObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-scanobject">Using ScanObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scanobject-methods">ScanObject methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="emailing.html">Emailing Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htmlgenerator.html">HTMLGenerator Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Log Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upload.html">Upload Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">Server Requirements</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="businessunit.html" title="previous chapter">BusinessUnit Module</a></li>
+      <li>Next: <a href="emailing.html" title="next chapter">Emailing Module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Daniel Thurau.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/scanobject.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

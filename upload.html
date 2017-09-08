@@ -1,0 +1,144 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Upload Module &#8212; python-portscan 3.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Server Requirements" href="server.html" />
+    <link rel="prev" title="Log Module" href="log.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="upload-module">
+<h1>Upload Module<a class="headerlink" href="#upload-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose-of-upload">
+<h2>Purpose of Upload<a class="headerlink" href="#purpose-of-upload" title="Permalink to this headline">¶</a></h2>
+<p>This module allows uploading to DropBox to keep reports in a remote accessible repository.</p>
+</div>
+<div class="section" id="using-upload">
+<h2>Using Upload<a class="headerlink" href="#using-upload" title="Permalink to this headline">¶</a></h2>
+<p>This module is implicitly called the BusinessUnit object, but can still be called by the user. It requires both a Google URL Shortnerer api key defined in an environment variable named ‘google_key’, and a DropBox API key defined in an environment variable named ‘dropbox_key’. If these are not defined a EnvironmentException will be raised and caught in the BusinessUnit Object, and no files will be uploaded.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ export google_key=&#39;{YOUR GOOGLE API KEY}&#39;
+$ export dropbox_key=&#39;{YOUR DROPBOX API KEY}&#39;
+</pre></div>
+</div>
+<p>The function provided by the Upload module requires a list of files to be uploaded and a relative path inside of DropBox to upload to.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">portscan</span> <span class="k">import</span> <span class="n">Upload</span>
+
+<span class="o">...</span>
+
+<span class="c1">#relative filepath inside of DropBox</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/nmap-test/&quot;</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;out.html&#39;</span><span class="p">,</span><span class="s1">&#39;test.html&#39;</span><span class="p">]</span>
+
+<span class="n">UploadToDropbox</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="upload-methods">
+<h2>Upload methods<a class="headerlink" href="#upload-methods" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">python-portscan</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="businessunit.html">BusinessUnit Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanobject.html">ScanObject Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emailing.html">Emailing Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htmlgenerator.html">HTMLGenerator Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Log Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Upload Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#purpose-of-upload">Purpose of Upload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-upload">Using Upload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload-methods">Upload methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">Server Requirements</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="log.html" title="previous chapter">Log Module</a></li>
+      <li>Next: <a href="server.html" title="next chapter">Server Requirements</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Daniel Thurau.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/upload.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
