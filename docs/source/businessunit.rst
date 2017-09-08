@@ -15,7 +15,6 @@ Using BusinessUnit
 Most modules while callable by the user are integrated into BusinessUnit. An example workflow is given below.
 
 
-
 BusinessUnit methods
 --------------------
 
