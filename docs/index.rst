@@ -14,7 +14,7 @@ Current modules
 - Emailing: Configures push notifications via emails.
 - HTMLGenerator: Programatically generates HTML output.
 - Log: Allows logging of key features.
-- Upload: Allows uploading of reports to DropBox
+- Upload: Allows uploading of reports to DropBox.
 
 
 Kali_Port_Scanning's modules
@@ -22,7 +22,7 @@ Kali_Port_Scanning's modules
 
 The full `source code <http://www.python.org/>`_ is availible on GitHub.
 
-The differen modules are documented below:
+The different modules are documented below:
 
 .. toctree::
    :maxdepth: 2

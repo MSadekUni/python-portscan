@@ -11,10 +11,17 @@ The HTMLGenerator module provides a programtic generator for HTML output using d
 Using HTMLGenerator
 -------------------
 
+The BusinessUnit object implicitly calls functions inside of HMTLGenerator, but functions are also avalible to users. GenerateHTML requires a reference to a BusinessUnit object to collect data to generate the HTML report. An VERY basic example is provided below.
+
 ::
     
-    Hello World
-    This is some example code
+    from portscan imoport HTMLGenerator
+
+    ...
+
+    BU.Collect()
+
+    GenerateHTML(BU)
 
 
 HTMLGenerator methods

@@ -1,11 +1,13 @@
 # User Defined Modules
 from . import HTMLGenerator
-
 from . import Log
-
 from . import ScanObject
 
-from . import Upload
+try:
+  from . import Upload
+except EnvironmentError:
+  upload_bool = False
+  
 
 # Standard Library Modules
 # from libnmap.parser import NmapParser
@@ -20,7 +22,7 @@ __all__ = [
 # Business Uni 
 class BusinessUnit:
   def __init__(self, p_name, p_path, p_verbose = "", p_org = ""):
-    """ BusinessUnit Class Constructor """
+    """ BusinessUnit Class Constructor. """
 
     isinstance(p_name, str)
     isinstance(p_path, str)
@@ -49,7 +51,7 @@ class BusinessUnit:
 
   # Check that all neccessary configuration dependancies exist  
   def CheckDeps(self):
-    """ Private Method that depends on self.path existing in the object """
+    """ Private Method that depends on self.path existing in the object. """
     if self.path == "":
       Log.send_log("CheckDeps called on " + self.business_unit + " object but does not contain a self.path defined variable. ")
       exit(0)
@@ -78,7 +80,7 @@ class BusinessUnit:
       exit(0)
 
   def ReadPorts(self):
-    """ Parse and store ports to be general ports in ports_bad_{business_unit}"""
+    """ Parse and store general ports from ports_bad_{business_unit}."""
     try:
       with open(self.ports_file, 'r') as f:
         for line in f:
@@ -104,7 +106,7 @@ class BusinessUnit:
 
 
   def ReadBase(self):
-    """ Parse and store networks, subnets, ranges, and individual IP's for scanning from ports_baseline_{business_unit}.conf"""
+    """ Parse and store networks, subnets, ranges, and individual IP's for scanning from ports_baseline_{business_unit}.conf."""
     try:
       with open(self.ip_file, 'r') as f:
         for line in f:
@@ -143,7 +145,7 @@ class BusinessUnit:
     Log.send_log("Finished reading Commands")
 
   def Scan(self):
-    """Execute scanning commands"""
+    """Execute scanning commands held in ScanObjects. Uses forking and waits on PID returns."""
     pids = []
     for obj in self.scan_objs:
       pid = os.fork()
@@ -158,7 +160,7 @@ class BusinessUnit:
 
 
   def ParseOutput(self, buisness_path = ""):
-    """Parse and assemble human readable csv report of all nmap results"""
+    """Parse and assemble human readable csv report of all nmap results. """
     if len(buisness_path) > 0:
       master_dict = {}
       with open(buisness_path, "r") as f:
@@ -218,6 +220,7 @@ class BusinessUnit:
 
 
   def Collect(self, buisness_path=""):
+    """ Calls ParseOutput to collect all output into a readable csv. Generates HTML Generation and Uploading to DropBox. """
     isinstance(buisness_path, str)
 
 
@@ -243,5 +246,5 @@ class BusinessUnit:
 
     
 
-
-
+if __name__ == "__main__":
+  upload_bool = True

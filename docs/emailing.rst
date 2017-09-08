@@ -16,7 +16,7 @@ Emailing is a module specifically called by the user. No other module explicitly
 
 ::
 
-    from portscan import Eamiling
+    from portscan import Emailing
 
     ...
 

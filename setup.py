@@ -20,7 +20,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
   name = 'python-portscan',
 
-  version = '3.0.0',
+  version = '1.0.0',
 
   description = "A complex wrapper around the nmap command line utility.",
 

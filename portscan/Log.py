@@ -8,7 +8,7 @@ __all__ = [
 ]
 
 def send_log(message):
-  """Logging method used throughout Kali_Port_Scanning"""
+  """Logging method used throughout python-portscan"""
   logging.info(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S') + " " + message)
 
 # stuff to run always here such as class/def

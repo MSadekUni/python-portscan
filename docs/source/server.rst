@@ -1,5 +1,0 @@
-Server Requirements
-===================
-
-Fuck
-----
