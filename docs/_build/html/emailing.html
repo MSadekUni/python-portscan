@@ -1,0 +1,145 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Emailing Module &#8212; python-portscan 3.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="HTMLGenerator Module" href="htmlgenerator.html" />
+    <link rel="prev" title="ScanObject Module" href="scanobject.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="emailing-module">
+<h1>Emailing Module<a class="headerlink" href="#emailing-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose-of-emailing">
+<h2>Purpose of Emailing<a class="headerlink" href="#purpose-of-emailing" title="Permalink to this headline">¶</a></h2>
+<p>The Eamiling module send push notifications to white listed email handles specified in the config files.</p>
+</div>
+<div class="section" id="using-emailing">
+<h2>Using Emailing<a class="headerlink" href="#using-emailing" title="Permalink to this headline">¶</a></h2>
+<p>Emailing is a module specifically called by the user. No other module explicitly or implicitly imports this set of functions, but does need a BusinessUnit Object to format and send emails.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">portscan</span> <span class="k">import</span> <span class="n">Emailing</span>
+
+<span class="o">...</span>
+
+<span class="c1"># After running a BusinessUnit Scan</span>
+<span class="n">BU</span><span class="o">.</span><span class="n">Collect</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">BU</span><span class="o">.</span><span class="n">emails</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="n">Emailing</span><span class="o">.</span><span class="n">SendMail</span><span class="p">(</span><span class="n">BU</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-portscan.Emailing">
+<span id="emailing-methods"></span><h2>Emailing methods<a class="headerlink" href="#module-portscan.Emailing" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="portscan.Emailing.SendMail">
+<code class="descclassname">portscan.Emailing.</code><code class="descname">SendMail</code><span class="sig-paren">(</span><em>BU</em>, <em>server='localhost'</em><span class="sig-paren">)</span><a class="headerlink" href="#portscan.Emailing.SendMail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send formatted email using information from a BuisnessUnit Object.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">python-portscan</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="businessunit.html">BusinessUnit Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanobject.html">ScanObject Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Emailing Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#purpose-of-emailing">Purpose of Emailing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-emailing">Using Emailing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-portscan.Emailing">Emailing methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="htmlgenerator.html">HTMLGenerator Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Log Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upload.html">Upload Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">Server Requirements</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="scanobject.html" title="previous chapter">ScanObject Module</a></li>
+      <li>Next: <a href="htmlgenerator.html" title="next chapter">HTMLGenerator Module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Daniel Thurau.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/emailing.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
