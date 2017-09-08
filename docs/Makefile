@@ -25,7 +25,7 @@ help:
 gh-pages:
 	git checkout gh-pages
 	rm -rf build source
-	cd; cd -
+	cd /; cd -
 	git checkout master $(GH_PAGES_SOURCES)
 	git reset HEAD
 	make html
@@ -35,4 +35,4 @@ gh-pages:
 	git add -A
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages
 	git checkout master
-	cd; cd-
+	cd /; cd-
