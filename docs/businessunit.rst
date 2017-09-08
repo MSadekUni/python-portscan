@@ -1,42 +1,39 @@
-BusinessUnit Module
-===================
+ScanObject Module
+=================
 
 
-Purpose of BusinessUnit
------------------------
+Purpose of ScanObject
+---------------------
 
-The BusinessUnit object is the backbone of portscan, it structures the data needed for a business unit to exist,
-handles reading of input, creates ScanObjects, handles concurrency of scans, and parses output. 
+The ScanObject module is an object that is owned BusinessUnit. This recieves data from the BusinessUnit reading the config files, and configures the nmap scan to be run. It holds data such as: flags, IP set, ports, and output file. It will configure the final command and serve it to the BusinessUnit object when the BusinessUnit.scan() method is called. 
 
 
-Using BusinessUnit
-------------------
+Using ScanObject
+----------------
 
-Most modules while callable by the user are integrated into BusinessUnit. An example workflow is given below.
+ScanObject is implicitly called, but the user still has access to it. The BusinessUnit keeps a list of these objects under BusinessUnit.scan_objs. An basic example of how a ScanObject operates and serves its data is given below.
+
 
 ::
 
-    from portscan import BusinessUnit
+    from portscan import ScanObject
 
-    # create a BusinessUnit object with required arugments
-    BU = BusinessUnit.BusinessUnit('test_Business', '.')
+    ...
 
-    # populate data structures by reading in config files
-    BU.ReadPorts()
-    BU.ReadBase()
+    BU_SO = ScanObject.ScanObject()
+    
+    BU_SO.CreateCommand("127.0.0.1:22", "-127.0.0.2", "23", "nmap-test")
 
-    # Trigger the nmap scans
-    BU.Scan()
+    print(BU_SO.command)
 
-    # Collect all nmap data and write to file
-    BU.Collect()
+    $ open {nmap-dir}/out.html
 
-BusinessUnit methods
---------------------
 
-.. automodule:: portscan.BusinessUnit
-.. autoclass:: BusinessUnit
+ScanObject methods
+------------------
+
+.. automodule:: portscan.ScanObject
+.. autoclass:: ScanObject
     :members:
 
     .. automethod:: __init__
-
