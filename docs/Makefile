@@ -24,7 +24,9 @@ help:
 
 gh-pages:
 	cd ..
+	pwd
 	git checkout gh-pages
+	pwd
 	cd docs/
 	rm -rf build source
 	cd /; cd -
