@@ -14,22 +14,6 @@ Using BusinessUnit
 
 Most modules while callable by the user are integrated into BusinessUnit. An example workflow is given below.
 
-::
-    
-    from portscan import BusinessUnit
-
-    # create a BusinessUnit object with required arugments
-    BU = BusinessUnit.BusinessUnit('test_Business', '.')
-
-    # populate data structures by reading in config files
-    BU.ReadPorts()
-    BU.ReadBase()
-
-    # Trigger the nmap scans
-    BU.Scan()
-
-    # Collect all nmap data and write to file
-    BU.Collect()
 
 
 BusinessUnit methods
