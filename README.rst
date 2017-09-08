@@ -55,7 +55,7 @@ Install
 
 You can install portscan via git::
 
-    $ git clone https://github.com/savon-noir/python-portscan.git
+    $ git clone https://github.com/danielthurau/python-portscan.git
     $ cd python-portscan
     $ python setup.py install
 
