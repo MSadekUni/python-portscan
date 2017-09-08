@@ -23,11 +23,7 @@ help:
 
 
 gh-pages:
-	cd ..
-	pwd
-	git checkout gh-pages
-	pwd
-	cd docs/
+	cd ..;git checkout gh-pages;cd docs/
 	rm -rf build source
 	cd /; cd -
 	git checkout master $(GH_PAGES_SOURCES)
