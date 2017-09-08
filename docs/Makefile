@@ -23,7 +23,9 @@ help:
 
 
 gh-pages:
+	cd ..
 	git checkout gh-pages
+	cd docs/
 	rm -rf build source
 	cd /; cd -
 	git checkout master $(GH_PAGES_SOURCES)
@@ -34,5 +36,6 @@ gh-pages:
 	rm -rf $(GH_PAGES_SOURCES) build
 	git add -A
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages
+	cd ..
 	git checkout master
 	cd /; cd-
