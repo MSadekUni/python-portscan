@@ -69,5 +69,5 @@ Some codes samples are available in the examples directory or in the `documentat
 
 .. _documentation: https://python-portscan.readthedocs.org
 
-.. _libnmap: https://raw.githubusercontent.com/savon-noir/python-libnmap
+.. _libnmap: https://github.com/savon-noir/python-libnmap
 
