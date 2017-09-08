@@ -3,10 +3,9 @@ from . import HTMLGenerator
 from . import Log
 from . import ScanObject
 
-try:
-  from . import Upload
-except EnvironmentError:
-  upload_bool = False
+
+from . import Upload
+
   
 
 # Standard Library Modules
@@ -245,9 +244,3 @@ class BusinessUnit:
         self.links = []
     # Generate HMTL
     HTMLGenerator.GenerateHTML(self)
-
-
-    
-
-if __name__ == "__main__":
-  upload_bool = True
