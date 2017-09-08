@@ -66,6 +66,7 @@ setup(
     'yattag',
     'dropbox',
     'python-libnmap',
+    'requests',
   ],
 
   python_requires = '>=3',
