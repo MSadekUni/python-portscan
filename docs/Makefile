@@ -3,11 +3,12 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = python3 -msphinx
+SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = python-portscan
-SOURCEDIR     = .
-BUILDDIR      = _build
-GH_PAGES_SOURCES 	= source code libuv Makefile
+SOURCEDIR     = source
+BUILDDIR      = build
+GH_PAGES_SOURCES = source Makefile
+
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -22,7 +23,7 @@ help:
 
 gh-pages:
 	git checkout gh-pages
-	rm -rf build _sources _static
+	rm -rf build sources 
 	git checkout master $(GH_PAGES_SOURCES)
 	git reset HEAD
 	make html
