@@ -21,7 +21,7 @@ portscan modules
 The lib currently offers the following modules:
 
 - **businessunit**: backbone object that owns scanobject, reads config files, constructs data, performs the scanning, and parses data.
-- ** scanobject**: encapsualates data parsed by businessunit and serves it during scanning.
+- **scanobject**: encapsualates data parsed by businessunit and serves it during scanning.
 - **email**: enables users to send push notifications to users from data collected by businessunit.
 - **htmlgenerator**: enables users to programmatically generate HTML reports from data collected.
 - **log**: custom log generator object.
