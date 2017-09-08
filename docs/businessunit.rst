@@ -36,4 +36,6 @@ ScanObject methods
 .. autoclass:: BusinessUnit
     :members:
 
-    .. automethod:: __init__
+    .. method:: __init__
+
+       God damn
