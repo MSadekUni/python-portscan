@@ -32,9 +32,9 @@ ScanObject is implicitly called, but the user still has access to it. The Busine
 ScanObject methods
 ------------------
 
-.. automodule:: portscan.BusinessUnit
-.. autoclass:: BusinessUnit
-    :members:
+
+.. class:: BusinessUnit
+    :members: burp, suite
 
     .. method:: __init__
 
