@@ -36,7 +36,7 @@ BusinessUnit methods
 --------------------
 
 
-.. automodule:: portscan.BusinessUnit
+.. automodule:: portscan.businessunit
 .. autoclass:: BusinessUnit
     :members: 
 

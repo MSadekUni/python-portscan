@@ -32,5 +32,5 @@ The function provided by this module is very simple and only requires a messgae 
 Log methods
 -----------
 
-.. automodule:: portscan.Log
+.. automodule:: portscan.log
 .. autofunction:: send_log

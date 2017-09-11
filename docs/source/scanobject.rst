@@ -32,7 +32,7 @@ ScanObject is implicitly called, but the user still has access to it. The Busine
 ScanObject methods
 ------------------
 
-.. automodule:: portscan.ScanObject
+.. automodule:: portscan.scanobject
 .. autoclass:: ScanObject
     :members:
 

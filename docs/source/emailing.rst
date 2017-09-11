@@ -30,5 +30,5 @@ Emailing is a module specifically called by the user. No other module explicitly
 Emailing methods
 ----------------
 
-.. automodule:: portscan.Emailing
+.. automodule:: portscan.email
 .. autofunction:: SendMail

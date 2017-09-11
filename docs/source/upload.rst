@@ -35,5 +35,5 @@ The function provided by the Upload module requires a list of files to be upload
 Upload methods
 --------------
 
-.. automodule:: portscan.Upload
+.. automodule:: portscan.upload
 .. autofunction:: UploadToDropbox

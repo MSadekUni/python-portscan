@@ -27,5 +27,5 @@ The BusinessUnit object implicitly calls functions inside of HMTLGenerator, but 
 HTMLGenerator methods
 ---------------------
 
-.. automodule:: portscan.HTMLGenerator
+.. automodule:: portscan.htmlgenerator
 .. autofunction:: GenerateHTML
