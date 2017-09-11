@@ -38,7 +38,7 @@ BusinessUnit methods
 
 .. automodule:: portscan.BusinessUnit
 .. autoclass:: BusinessUnit
-    :members: BusinessUnit.business_unit, BusinessUnit.path, BusinessUnit.org, BusinessUnit.verbose, BusinessUnit.machine_count, BusinessUnit.emails, BusinessUnit.stats, BusinessUnit.outfile
+    :members: portscan.BusinessUnit.BusinessUnit.business_unit, portscan.BusinessUnit.BusinessUnit.path, portscan.BusinessUnit.BusinessUnit.org, portscan.BusinessUnit.BusinessUnit.verbose, portscan.BusinessUnit.BusinessUnit.machine_count, portscan.BusinessUnit.BusinessUnit.emails, portscan.BusinessUnit.BusinessUnit.stats, portscan.BusinessUnit.BusinessUnit.outfile
 
     .. automethod:: __init__
 
