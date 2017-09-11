@@ -21,7 +21,13 @@ __all__ = [
 # Business Uni 
 class BusinessUnit:
   def __init__(self, p_name, p_path, p_verbose = "", p_org = ""):
-    """ BusinessUnit Class Constructor. """
+    """ BusinessUnit Class Constructor. 
+
+    :ivar businessUnit: initial value: p_name
+    :ivar path: initial value: p_path
+
+
+    """
 
     isinstance(p_name, str)
     isinstance(p_path, str)
