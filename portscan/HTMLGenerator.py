@@ -1,6 +1,7 @@
 from . import log
 
-import arrow
+import datetime
+import time
 from yattag import Doc
 from yattag import indent
 import fileinput
@@ -13,8 +14,7 @@ __all__ = [
 
 def GenerateHTML(BU):
   """ Programmatically Generates HTML using data served from a BusinessUnit object. """
-  utc = arrow.utcnow()
-  local = utc.to('US/Pacific')
+
 
 
   log.send_log("Generating HTML output for " + BU.business_unit)
@@ -67,7 +67,7 @@ def GenerateHTML(BU):
         with tag('p', style="margin-left: 5px; margin-top: 0px; margin-bottom: 0px;"):
           text(str(BU.live_host) + "/" + str(BU.machine_count) + " items Up")
         with tag('p', style="margin-left: 5px; margin-top: 0px; margin-bottom: 0px;"):
-          text(local.format('YYYY-MM-DD HH:mm:ss'))
+          text(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))
         with tag('p', style="text-decoration: underline; margin-left: 5px; margin-top: 0px; margin-bottom: 0px;"):
           text("Stats")
         with tag('p', style="margin-left: 40px; padding:0px; margin-top: 0px; margin-bottom: 0px;"):

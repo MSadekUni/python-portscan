@@ -1,4 +1,5 @@
-import arrow
+import datetime
+import time
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -16,13 +17,12 @@ def SendMail(BU, server="localhost"):
     """Send formatted email using information from a BuisnessUnit Object."""
 
     # Timestamp init
-    utc = arrow.utcnow()
-    local = utc.to('US/Pacific')
+
 
     htmlFile = BU.nmap_dir + "out.html" 
 
     # Subject Creation
-    subject = "Scan-" + local.format('YYYY-MM-DD HH:mm:ss')
+    subject = "Scan-" + datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
 
     if BU.verbose != "":
         subject = BU.verbose + " " + subject
