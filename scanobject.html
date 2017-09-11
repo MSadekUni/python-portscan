@@ -63,8 +63,31 @@ $ open {nmap-dir}/out.html
 </pre></div>
 </div>
 </div>
-<div class="section" id="scanobject-methods">
-<h2>ScanObject methods<a class="headerlink" href="#scanobject-methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-portscan.scanobject">
+<span id="scanobject-methods"></span><h2>ScanObject methods<a class="headerlink" href="#module-portscan.scanobject" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="portscan.scanobject.ScanObject">
+<em class="property">class </em><code class="descclassname">portscan.scanobject.</code><code class="descname">ScanObject</code><a class="headerlink" href="#portscan.scanobject.ScanObject" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="portscan.scanobject.ScanObject.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#portscan.scanobject.ScanObject.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contructor of object containing a single nmap scan entity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="portscan.scanobject.ScanObject.CreateCommand">
+<code class="descname">CreateCommand</code><span class="sig-paren">(</span><em>line</em>, <em>exclusion_string</em>, <em>global_ports</em>, <em>out_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#portscan.scanobject.ScanObject.CreateCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes input from the BusinessUnit object that owns this ScanObject and creates the command for the system to execute.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="portscan.scanobject.ScanObject.GetMachineCount">
+<code class="descname">GetMachineCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#portscan.scanobject.ScanObject.GetMachineCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the number of IP’s that will be scanned with this object’s instance.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -89,7 +112,7 @@ $ open {nmap-dir}/out.html
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ScanObject Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#purpose-of-scanobject">Purpose of ScanObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-scanobject">Using ScanObject</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#scanobject-methods">ScanObject methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-portscan.scanobject">ScanObject methods</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="emailing.html">Emailing Module</a></li>
