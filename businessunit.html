@@ -78,42 +78,6 @@ handles reading of input, creates ScanObjects, handles concurrency of scans, and
 <dd><p>BusinessUnit Class Constructor.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="portscan.BusinessUnit.BusinessUnit.CheckDeps">
-<code class="descname">CheckDeps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#portscan.BusinessUnit.BusinessUnit.CheckDeps" title="Permalink to this definition">¶</a></dt>
-<dd><p>Private Method that depends on self.path existing in the object.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="portscan.BusinessUnit.BusinessUnit.Collect">
-<code class="descname">Collect</code><span class="sig-paren">(</span><em>buisness_path=''</em><span class="sig-paren">)</span><a class="headerlink" href="#portscan.BusinessUnit.BusinessUnit.Collect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calls ParseOutput to collect all output into a readable csv. Generates HTML Generation and Uploading to DropBox.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="portscan.BusinessUnit.BusinessUnit.ParseOutput">
-<code class="descname">ParseOutput</code><span class="sig-paren">(</span><em>buisness_path=''</em><span class="sig-paren">)</span><a class="headerlink" href="#portscan.BusinessUnit.BusinessUnit.ParseOutput" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse and assemble human readable csv report of all nmap results.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="portscan.BusinessUnit.BusinessUnit.ReadBase">
-<code class="descname">ReadBase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#portscan.BusinessUnit.BusinessUnit.ReadBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse and store networks, subnets, ranges, and individual IP’s for scanning from ports_baseline_{business_unit}.conf.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="portscan.BusinessUnit.BusinessUnit.ReadPorts">
-<code class="descname">ReadPorts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#portscan.BusinessUnit.BusinessUnit.ReadPorts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse and store general ports from ports_bad_{business_unit}.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="portscan.BusinessUnit.BusinessUnit.Scan">
-<code class="descname">Scan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#portscan.BusinessUnit.BusinessUnit.Scan" title="Permalink to this definition">¶</a></dt>
-<dd><p>Execute scanning commands held in ScanObjects. Uses forking and waits on PID returns.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
