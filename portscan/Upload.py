@@ -1,9 +1,11 @@
-from . import Log
+from . import log
 
 import os
 import arrow
 import dropbox
 import requests
+import datetime
+import time
 
 __all__ = [
     'UploadToDropbox',
@@ -14,18 +16,16 @@ __all__ = [
 def UploadToDropbox(files, folder_dest):
   """ Uploads each file denoted in 'files' to the DropBox folder denoted by folder_dest """
 
-  utc = arrow.utcnow()
-  local = utc.to('US/Pacific')
   try: 
     DROP_BOX_API = os.environ['dropbox_key']
   except:
-    Log.send_log("ENV Var dropbox_key DNE")
+    log.send_log("ENV Var dropbox_key DNE")
     raise EnvironmentError
 
   try:
     GOOGLE_API = os.environ['google_key']
   except:
-    Log.send_log("ENV Var google_key DNE")
+    log.send_log("ENV Var google_key DNE")
     raise EnvironmentError
 
   # Dropbox module init
@@ -36,7 +36,7 @@ def UploadToDropbox(files, folder_dest):
   isinstance(files, list)
   isinstance(folder_dest, str)
 
-  Log.send_log("Uploading " + ','.join(str(x) for x in files) + " to Dropbox folder: " + folder_dest)
+  log.send_log("Uploading " + ','.join(str(x) for x in files) + " to Dropbox folder: " + folder_dest)
   
   returnLinks = []
   CHUNKSIZE = 2 * 1024 *1024
@@ -44,7 +44,7 @@ def UploadToDropbox(files, folder_dest):
   for file in files:
 
     fileSize = os.path.getsize(file)
-    full_db_path = folder_dest + local.format('YYYY-MM-DD_HH:mm:ss')  + "_" + os.path.basename(file)
+    full_db_path = folder_dest + datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S') + "_" + os.path.basename(file)
     
     if fileSize <= CHUNKSIZE:
       with open(file, "rb") as f:
@@ -55,7 +55,7 @@ def UploadToDropbox(files, folder_dest):
         if result.status_code == 200:
             returnLinks.append(result.json()['url'])
         else:
-          Log.send_log("Error using the Dropbox Share API " + str(result))
+          log.send_log("Error using the Dropbox Share API " + str(result))
     else:
         with open(file, "rb") as f:
 
@@ -76,10 +76,10 @@ def UploadToDropbox(files, folder_dest):
         if result.status_code == 200:
             returnLinks.append(result.json()['url'])
         else:
-          Log.send_log("Error using the Dropbox Share API " + str(result))
+          log.send_log("Error using the Dropbox Share API " + str(result))
 
 
-  Log.send_log("Finished uploading " + ','.join(str(x) for x in files) + " to Dropbox folder: " + folder_dest)
+  log.send_log("Finished uploading " + ','.join(str(x) for x in files) + " to Dropbox folder: " + folder_dest)
   
   for i in range(0, len(returnLinks)):
       headers = {'Content-Type': 'application/json',}
@@ -90,7 +90,7 @@ def UploadToDropbox(files, folder_dest):
       if r.status_code == 200:
         returnLinks[i] = r.json()["id"]
       else:
-         Log.send_log("Error using the Google UrlShortener API " + str(r))
+         log.send_log("Error using the Google UrlShortener API " + str(r))
   return returnLinks 
 
 

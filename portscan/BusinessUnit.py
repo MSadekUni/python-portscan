@@ -1,10 +1,8 @@
 # User Defined Modules
-from . import HTMLGenerator
-from . import Log
-from . import ScanObject
-
-
-from . import Upload
+from . import htmlgenerator
+from . import log
+from . import scanobject
+from . import upload
 
   
 
@@ -38,7 +36,7 @@ class BusinessUnit:
     isinstance(p_verbose, str)
     isinstance(p_org, str)
 
-    Log.send_log("Scan started on " + p_name)
+    log.send_log("Scan started on " + p_name)
 
     # Provided input population
     self.business_unit = p_name
@@ -67,7 +65,7 @@ class BusinessUnit:
   def CheckDeps(self):
     """ Private Method that depends on self.path existing in the object. """
     if self.path == "":
-      Log.send_log("CheckDeps called on " + self.business_unit + " object but does not contain a self.path defined variable. ")
+      log.send_log("CheckDeps called on " + self.business_unit + " object but does not contain a self.path defined variable. ")
       exit(0)
 
     self.config_dir = self.path + "config/"
@@ -86,7 +84,7 @@ class BusinessUnit:
     # output directory
     self.nmap_dir = self.path + "nmap-" + self.business_unit + "/"
     if not self.CheckExist(self.nmap_dir):
-      Log.send_log(self.nmap_dir + " does not exist... creating now")
+      log.send_log(self.nmap_dir + " does not exist... creating now")
       os.system("mkdir " + self.nmap_dir)
 
   def CheckExist(self, file):
@@ -94,7 +92,7 @@ class BusinessUnit:
     """ Helper private method for CheckDeps """
     if not os.path.exists(file):
       print(file + " does not exist. Exiting...")
-      Log.send_log(file + " does not exist.")
+      log.send_log(file + " does not exist.")
       return False
 
   def ReadPorts(self):
@@ -123,9 +121,9 @@ class BusinessUnit:
           self.ports = self.ports + ','
 
     except IOError:
-      Log.send_log("Unable to open " + self.ports_file)
+      log.send_log("Unable to open " + self.ports_file)
       exit(1)
-    Log.send_log("Finished reading ports")
+    log.send_log("Finished reading ports")
 
 
   def ReadBase(self):
@@ -163,20 +161,20 @@ class BusinessUnit:
 
 
     except IOError:
-      Log.send_log("Unable to open " + self.ip_file)
+      log.send_log("Unable to open " + self.ip_file)
       exit(1)
-    Log.send_log("Finished reading Commands")
+    log.send_log("Finished reading Commands")
 
 
 
   def Scan(self):
     """Execute scanning commands held in ScanObjects. Uses forking and waits on PID returns."""
     if self.ports_bool == False:
-      Log.send_log("No ports specified for scanning")
+      log.send_log("No ports specified for scanning")
       exit(0)
 
     for item in self.sets:
-      BU_SO = ScanObject.ScanObject()
+      BU_SO = scanobject.ScanObject()
       # populate fields based on line input
       BU_SO.CreateCommand(item, self.exclude_string, self.ports, self.nmap_dir)
       self.scan_objs.append(BU_SO)
@@ -188,7 +186,7 @@ class BusinessUnit:
       if pid != 0:
         pids.append(pid)
       else:
-        Log.send_log(obj.command)
+        log.send_log(obj.command)
         os.system(obj.command)
         exit(0)
     for i in pids:
@@ -251,7 +249,7 @@ class BusinessUnit:
                 self.stats[nmap_obj.state] = self.stats[nmap_obj.state] + 1
               else:
                 self.stats[nmap_obj.state] = self.stats[nmap_obj.state] + 1
-      Log.send_log("File " + obj.outfile + " parsed.")
+      log.send_log("File " + obj.outfile + " parsed.")
     return master_out
 
 
@@ -273,11 +271,11 @@ class BusinessUnit:
       for line in out:
         f.write(line + "\n")
 
-    Log.send_log("Generated CSV report.")
+    log.send_log("Generated CSV report.")
     # upload Report to DropBox
     try:
-      self.links = Upload.UploadToDropbox([self.outfile], '/' + os.path.basename(os.path.normpath(self.nmap_dir)) + '/')
+      self.links = upload.UploadToDropbox([self.outfile], '/' + os.path.basename(os.path.normpath(self.nmap_dir)) + '/')
     except EnvironmentError:
         self.links = []
     # Generate HMTL
-    HTMLGenerator.GenerateHTML(self)
+    htmlgenerator.GenerateHTML(self)

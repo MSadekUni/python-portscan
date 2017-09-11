@@ -1,4 +1,4 @@
-from . import Log
+from . import log
 
 import arrow
 from yattag import Doc
@@ -17,7 +17,7 @@ def GenerateHTML(BU):
   local = utc.to('US/Pacific')
 
 
-  Log.send_log("Generating HTML output for " + BU.business_unit)
+  log.send_log("Generating HTML output for " + BU.business_unit)
 
 
   doc, tag, text = Doc().tagtext()
@@ -147,4 +147,4 @@ def GenerateHTML(BU):
   with fileinput.FileInput(BU.nmap_dir + 'out.html', inplace=True) as file:
     for line in file:
       print(line.replace('&lt;', '<'), end='')
-  Log.send_log("Finished generating HTML output for " + BU.business_unit)
+  log.send_log("Finished generating HTML output for " + BU.business_unit)
