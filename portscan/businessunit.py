@@ -3,7 +3,6 @@ from . import htmlgenerator
 from . import log
 from . import scanobject
 from . import upload
-
   
 
 # Standard Library Modules
@@ -61,6 +60,7 @@ class BusinessUnit:
     self.config_dir = self.ports_file = self.ip_file = self.nmap_dir = self.ports = self.outfile = ""
     self.CheckDeps()
 
+  
   # Check that all neccessary configuration dependancies exist  
   def CheckDeps(self):
     """ Private Method that depends on self.path existing in the object. """
@@ -94,6 +94,8 @@ class BusinessUnit:
       print(file + " does not exist. Exiting...")
       log.send_log(file + " does not exist.")
       return False
+    else:
+      return True
 
   def ReadPorts(self):
     """ Parse and store general ports from ports_bad_{business_unit}."""
