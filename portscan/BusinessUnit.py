@@ -50,9 +50,14 @@ class BusinessUnit:
     self.machine_count = 0;
     self.live_host = 0
     self.exclude_string = ""
+    self.sets = []
     self.emails = self.mobile = self.links = []
     self.scan_objs = []
     self.stats = {"open":0, "open|filtered":0, "filtered":0, "closed|filtered":0, "closed":0}
+
+
+    # internal varibales
+    self.ports_bool = True
 
     # immediatley populated by checkDeps()
     self.config_dir = self.ports_file = self.ip_file = self.nmap_dir = self.ports = self.outfile = ""
@@ -66,17 +71,21 @@ class BusinessUnit:
       exit(0)
 
     self.config_dir = self.path + "config/"
-    self.CheckExist(self.config_dir)
+    if not self.CheckExist(self.config_dir):
+      exit(0)
 
     self.ports_file = self.config_dir + "ports_bad_" + self.business_unit
-    self.CheckExist(self.ports_file)
+    if not self.CheckExist(self.ports_file):
+      print("No ports_bad_" + self.business_unit + " specified, continuing without.")
+      self.ports_bool = False
 
     self.ip_file = self.config_dir + "ports_baseline_" + self.business_unit + ".conf"
-    self.CheckExist(self.ip_file)
+    if not self.CheckExist(self.ip_file):
+      exit(0)
 
     # output directory
     self.nmap_dir = self.path + "nmap-" + self.business_unit + "/"
-    if not os.path.exists(self.nmap_dir):
+    if not self.CheckExist(self.nmap_dir):
       Log.send_log(self.nmap_dir + " does not exist... creating now")
       os.system("mkdir " + self.nmap_dir)
 
@@ -85,11 +94,16 @@ class BusinessUnit:
     """ Helper private method for CheckDeps """
     if not os.path.exists(file):
       print(file + " does not exist. Exiting...")
-      Log.send_log(file+ " does not exist.")
-      exit(0)
+      Log.send_log(file + " does not exist.")
+      return False
 
   def ReadPorts(self):
     """ Parse and store general ports from ports_bad_{business_unit}."""
+    
+    # In case a user didn't specify a ports_bad file, but called this anyway
+    if not self.ports_bool:
+      return
+
     try:
       with open(self.ports_file, 'r') as f:
         for line in f:
@@ -143,18 +157,31 @@ class BusinessUnit:
             continue
           else:
             # create scan object
-            BU_SO = ScanObject.ScanObject()
-            # populate fields based on line input
-            BU_SO.CreateCommand(line.strip(' \t\n\r'), self.exclude_string, self.ports, self.nmap_dir)
-            self.scan_objs.append(BU_SO)
-            self.machine_count = self.machine_count + BU_SO.GetMachineCount()
+            self.sets.append(line.strip(' \t\r\n'))
+            if self.ports_bool == False and ':' in self.line:
+              self.ports_bool = True
+
+
     except IOError:
       Log.send_log("Unable to open " + self.ip_file)
       exit(1)
     Log.send_log("Finished reading Commands")
 
+
+
   def Scan(self):
     """Execute scanning commands held in ScanObjects. Uses forking and waits on PID returns."""
+    if self.ports_bool == False:
+      Log.send_log("No ports specified for scanning")
+      exit(0)
+
+    for item in self.sets:
+      BU_SO = ScanObject.ScanObject()
+      # populate fields based on line input
+      BU_SO.CreateCommand(item, self.exclude_string, self.ports, self.nmap_dir)
+      self.scan_objs.append(BU_SO)
+      self.machine_count = self.machine_count + BU_SO.GetMachineCount()
+
     pids = []
     for obj in self.scan_objs:
       pid = os.fork()
