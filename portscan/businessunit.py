@@ -266,8 +266,9 @@ class BusinessUnit:
 
     try:
       os.system("cp " + self.outfile + " " + self.nmap_dir + "output-" + self.business_unit + ".bak")
+      print("Successfully copied backup")
     except:
-      pass
+      print("Unsuccessfully copied backup")
 
     with open(self.outfile, 'w') as f:
       for line in out:
