@@ -209,13 +209,19 @@ class BusinessUnit:
     master_out = []
 
 
+    backup = {}
 
     try:
       with open(self.nmap_dir + "output-" + self.business_unit + ".bak") as f:
-        last = f.readlines()
+        for line in f:
+          line = line.split(',')
+          if line[0] not in backup:
+            backup[line[0]] = [line[1]]
+          else:
+            backup[line[0]].append(line[1])
       f.close()
     except IOError:
-      last = []
+      pass
 
 
 
@@ -237,8 +243,8 @@ class BusinessUnit:
                   out.append("")
                 
                 # append new or not
-                if len(last) > 0:
-                  if len([s for s in last if ",".join(out) in s]) == 0:
+                if len(backup) > 0:
+                  if scanned_hosts.address in backup and str(nmap_obj.port) in backup[scanned_hosts.address]:
                     out.append("*")
                   else:
                     out.append("")
