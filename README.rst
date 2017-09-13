@@ -31,7 +31,7 @@ The lib currently offers the following modules:
 Documentation
 -------------
 
-All the documentation is available on `read the docs`_. 
+All the documentation is available on `gh-pages`_. 
 
 Dependencies
 ------------
@@ -55,7 +55,7 @@ Install
 
 You can install portscan via git::
 
-    $ git clone https://github.com/danielthurau/python-portscan.git
+    $ git clone https://github.com/msadekuni/python-portscan.git
     $ cd python-portscan
     $ python setup.py install
 
@@ -65,9 +65,9 @@ Examples
 Some codes samples are available in the examples directory or in the `documentation`_.
 
 
-.. _read the docs: https://python-portscan.readthedocs.org
+.. _read the docs: https://msadekuni.github.io/python-portscan/
 
-.. _documentation: https://python-portscan.readthedocs.org
+.. _documentation: https://msadekuni.github.io/python-portscan/
 
 .. _libnmap: https://github.com/savon-noir/python-libnmap
 
