@@ -31,7 +31,7 @@ The lib currently offers the following modules:
 Documentation
 -------------
 
-All the documentation is available on `gh-pages`_. 
+All the documentation is available on `github pages`_. 
 
 Dependencies
 ------------
@@ -65,7 +65,7 @@ Examples
 Some codes samples are available in the examples directory or in the `documentation`_.
 
 
-.. _read the docs: https://msadekuni.github.io/python-portscan/
+.. _github pages: https://msadekuni.github.io/python-portscan/
 
 .. _documentation: https://msadekuni.github.io/python-portscan/
 
