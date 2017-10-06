@@ -13,13 +13,13 @@ logging.basicConfig(filename=LOG_FILE, level=logging.INFO)
 
 
 def send_log(message):
-  """Logging method used throughout python-portscan"""
-  logging.info(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S') + " " + message)
+    """Logging method used throughout python-portscan"""
+    logging.info(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S') + " " + message)
 
 # stuff to run always here such as class/def
-#def main():
+# def main():
 
 
-#if __name__ == "__main__":
-  # stuff only to run when not called via 'import' here
+# if __name__ == "__main__":
+# stuff only to run when not called via 'import' here
 #  main()
